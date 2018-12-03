@@ -1,9 +1,8 @@
 from __future__ import print_function
+
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.font_manager import FontProperties
-import threading
-import time
 
 font = FontProperties(fname=r"c:\windows\fonts\simsun.ttc", size=14)  # 解决windows环境下画图汉字乱码问题
 
@@ -110,18 +109,6 @@ def testLinearRegression():
     linearRegression(0.01, 400)
     # print u"\n计算的theta值为：\n",theta
     # print u"\n预测结果为：%f"%predict(mu, sigma, theta)
-
-
-# 测试学习效果（预测）
-def predict(mu, sigma, theta):
-    result = 0
-    # 注意归一化
-    predict = np.array([1650, 3])
-    norm_predict = (predict - mu) / sigma
-    final_predict = np.hstack((np.ones((1)), norm_predict))
-
-    result = np.dot(final_predict, theta)  # 预测结果
-    return result
 
 
 # 梯度下降算法
